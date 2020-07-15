@@ -27,17 +27,37 @@ export const Content = styled.div`
 export const ContentSection = styled.section`
   width: 100%;
   max-width: 380px;
-  padding-right: 16px;
+  padding-right: 32px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 32px;
+
+    small,
+    canvas {
+      display: none !important;
+    }
+  }
 
   p {
     font-size: 18px;
     color: #737380;
     line-height: 32px;
+    margin-bottom: 12px;
+  }
+
+  small {
+    font-size: 12px;
+    color: #898994;
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 8px;
+    display: block;
+    text-align: justify;
   }
 `
 
 export const ContentTitle = styled.h1`
-  margin: 64px 0 32px;
+  margin-bottom: 32px;
   font-size: 32px;
 `
 
@@ -67,25 +87,10 @@ export const FormGroup = styled.div`
   }
 `
 
-export const FormInput = styled.input`
-  width: 100%;
-  height: 60px;
-  color: var(--dark-black);
-  border: 1px solid #dcdce6;
-  border-radius: 8px;
-  padding: 0 24px;
-  font-family: 'Noto Sans JP', sans-serif;
-  transition: 0.3s box-shadow ease;
-
-  &:focus {
-    box-shadow: 0 0 2px 2px rgba(228, 63, 90);
-  }
-`
-
 export const Button = styled.button`
   width: 100%;
   height: 60px;
-  background: var(--red);
+  background: var(--blue);
   border: 0;
   border-radius: 8px;
   color: #fff;
@@ -99,8 +104,50 @@ export const Button = styled.button`
   transition: filter 0.2s ease;
   font-family: 'Noto Sans JP', sans-serif;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &:hover {
+  &:not(:disabled):hover {
     filter: brightness(90%);
+  }
+
+  &:disabled {
+    background: var(--grey);
+    cursor: not-allowed;
+  }
+`
+
+export const Instruction = styled.p<{ invalid?: boolean }>`
+  font-size: 16px;
+  color: ${(props): string => (props.invalid ? 'var(--red)' : '#737380')};
+  line-height: 28px;
+  margin-bottom: 12px;
+`
+
+export const Footer = styled.footer`
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    small {
+      display: none !important;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    color: #737380;
+    margin-bottom: 14px;
+  }
+
+  small {
+    color: #737380;
+    font-weight: bold;
+    font-size: 12px;
   }
 `

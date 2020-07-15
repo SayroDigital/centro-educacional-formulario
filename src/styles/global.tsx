@@ -4,12 +4,17 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --blue: #1f4068;
     --white: #f0f0f5;
+    --light-grey: #E7E7EF;
+    --grey: #DADAE7;
+    --dark-grey: #C1C1D7;
     --dark-blue: #162447;
     --deep-blue: #2D2D4E;
     --deep-black: #1b1b2f;
+    --green: #00AF54;
+    --blue: #007CBE;
     --red: #e43f5a;
   }
-  * {    
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
